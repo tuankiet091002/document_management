@@ -1,4 +1,5 @@
 FROM eclipse-temurin:11-jdk-jammy AS build
+RUN chmod +x mvnw
 WORKDIR /home/app
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
