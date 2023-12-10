@@ -6,7 +6,7 @@ COPY ./src ./src
 RUN --mount=type=cache,target=/root/.m2 ./mvnw -f ./pom.xml clean package
 
 FROM build as test
-RUN ["./mvnw", "test"]
+CMD ["./mvnw", "test"]
 
 FROM eclipse-temurin:11-jre-jammy AS production
 WORKDIR /home/app

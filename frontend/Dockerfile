@@ -9,7 +9,10 @@ ENV VITE_BACKEND_URL $BACKEND_URL
 COPY . .
 RUN npm run build
 
-FROM nginx
+FROM build as test
+CMD ["npm", "test"]
+
+FROM nginx as production
 COPY --from=build /home/app/nginx.conf /etc/nginx/conf.d/default.conf
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*

@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 
-import React, { Fragment, useEffect, useRef, useState } from "react";
-import { message, Spin } from "antd";
-import { FaFileAlt,FaCheck } from "react-icons/fa";
 import { LoadingOutlined } from "@ant-design/icons";
-import "./FormDocument.css";
-import { updateDoc, getDoc } from "../../../Api/Service/doc.service";
+import { Spin, message } from "antd";
+import React, { useEffect, useRef, useState } from "react";
+import { FaCheck, FaFileAlt } from "react-icons/fa";
+import { getDoc, updateDoc } from "../../../Api/Service/doc.service";
 import uploadImage from "../../../assets/upload.png";
+import "./FormDocument.css";
 
 function UpdateDocument({id , handleUpdate}) {
 
@@ -73,7 +73,6 @@ function UpdateDocument({id , handleUpdate}) {
       })
       .catch(err => {
         error("Failed")
-        console.log(err);
       })
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, isSuccess])
@@ -240,7 +239,6 @@ function UpdateDocument({id , handleUpdate}) {
       })
       .catch((err) => {
         error("Uploading failed!");
-        console.log(err);
       });
   };
   
